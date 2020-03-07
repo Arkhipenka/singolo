@@ -13,8 +13,8 @@
 			<p>Fusce dapibus, tellus ac curcus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus nisi erat portitor ligula, egget lacinia odio sem nec elit. Fusce dapibus, tellus ac curcus commodo, tortor mauris condimentum nibh.</p>
 			<section class="box">
 				<form name="form" >
-					<input type="text" name="name" placeholder="Name (Requred)" required>
-					<input type="text" name="email" placeholder="Email (Requred)" required>
+					<input type="text" name="name" placeholder="Name (Requred)" pattern="[A-Za-z]{3,14}" required>
+					<input type="email" name="email" placeholder="Email (Requred)" required>
 					<input type="text" name="subject" placeholder="Subject" >
 					<textarea placeholder="Describe your project in detail..."></textarea>
 					<button type="submit">Submit</button>
