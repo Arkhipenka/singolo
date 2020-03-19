@@ -29,7 +29,6 @@ function hideSlider(argument) {
 
 function showSlider(argument) {
     sliders[currentSlider].classList.add('slide-next', argument);
-    slider[currentSlider].classList.add('')
     sliders[currentSlider].addEventListener('animationend', function () {
         this.classList.remove('slide-next', argument);
         this.classList.add('slide-active');
