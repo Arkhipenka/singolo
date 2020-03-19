@@ -5,50 +5,91 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>singolo1</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	
 </head>
 <body>
 	<header>
 		<h1 class="logo">SINGOLO<span>*</span></h1>
-		<nav class="menu">
-			<ul>
-				<li><a href="#">HOME</a></li>
-				<li><a href="#">SERVICES</a></li>
-				<li><a href="#">PORTFOLIO</a></li>
-				<li><a href="#">ABOUT</a></li>
-				<li><a href="#">CONTACT</a></li>
+		<nav class="menu" >
+			<ul id="menu">
+				<li><a href="#" class="active">HOME</a></li>
+				<li><a href="#services">SERVICES</a></li>
+				<li><a href="#portfolio">PORTFOLIO</a></li>
+				<li><a href="#about">ABOUT</a></li>
+				<li><a href="#contact">CONTACT</a></li>
 			</ul>
 		</nav>
 	</header>
 	<main>
-		<section class="sliders">
+		
+		<section class="sliders" id="sliders">
 			<span class="prew" id="prew"></span>
-			<section class="slider">
-				<div class="slider_image_box">
-					<div class="cam"></div>
-					<div class="speaker"></div>
-					<div class="screen">
-						<div></div>
+			<section class="slider-wrapper" id="slider">
+				<section class="slider first-slide slide-active">
+					<div class="slider_image_box">
+						<div class="cam"></div>
+						<div class="speaker"></div>
+						<div class="screen" id="screen">
+							<div></div>
+						</div>
+						<div class="btn" id="btn-tel">
+							<div></div>
+						</div>
+						
 					</div>
-					<div class="btn">
-						<div></div>
+					<div class="slider_image_box">
+						<div class="btn" id="btn-tel">
+							<div></div>
+						</div>
+						
+						<div class="screen">
+							<div></div>
+						</div>
+						<div class="speaker"></div>
+						<div class="cam"></div>
 					</div>
-					
-				</div>
-				<div class="slider_image_box">
-					<div class="btn">
-						<div></div>
+				</section>
+				<section class="slider last-slide slide-next">
+					<div class="slider_image_box">
+						<div class="cam"></div>
+						<div class="speaker"></div>
+						<div class="screen" id="screen">
+							<div></div>
+						</div>
+						<div class="btn" id="btn-tel">
+							<div></div>
+						</div>
+						
 					</div>
-					
-					<div class="screen">
-						<div></div>
+					<div class="slider_image_box">
+						<div class="cam"></div>
+						<div class="speaker"></div>
+						<div class="screen" id="screen">
+							<div></div>
+						</div>
+						<div class="btn" id="btn-tel">
+							<div></div>
+						</div>
+						
 					</div>
-					<div class="speaker"></div>
-					<div class="cam"></div>
-				</div>
+					<div class="slider_image_box">
+						<div class="cam"></div>
+						<div class="speaker"></div>
+						<div class="screen" id="screen">
+							<div></div>
+						</div>
+						<div class="btn" id="btn-tel">
+							<div></div>
+						</div>
+						
+					</div>
+				</section>
 			</section>
+			
+			
 			<span class="next" id="next"></span>
 		</section>
-		<section class="services">
+		<section class="services" id="services">
 			<h3>Our Services</h3>
 			<p class="txt-about">Fusce dapibus, tellus as curcus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat portittor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus as curucus commodo, tortor mauris condimentum nibh.</p>
 			<section class="list">
@@ -101,29 +142,29 @@
 				</div>
 			</section>
 		</section>
-		<section class="portfolio">
+		<section class="portfolio" id="portfolio">
 			<section class="section-txt">
 				<h3>Portfolio</h3>
 				<p>Duis mollis, est non commondo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-				<div class="portfolio-nav"><span>All</span><span>Web Design</span><span>Graphic Design</span><span>Atwork</span></div>
+				<div class="portfolio-nav" id="portfolio-nav"><span class="active">All</span><span>Web Design</span><span>Graphic Design</span><span>Atwork</span></div>
 			</section>
-			<section class="box-section">
-				<img src="assets/portfolio1.jpg" alt="portfolio">
-				<img src="assets/portfolio2.jpg" alt="portfolio">
-				<img src="assets/portfolio3.jpg" alt="portfolio">
-				<img src="assets/portfolio4.jpg" alt="portfolio">
-				<img src="assets/portfolio5.jpg" alt="portfolio">
-				<img src="assets/portfolio6.jpg" alt="portfolio">
-				<img src="assets/portfolio7.jpg" alt="portfolio">
-				<img src="assets/portfolio8.jpg" alt="portfolio">
-				<img src="assets/portfolio9.jpg" alt="portfolio">
-				<img src="assets/portfolio10.jpg" alt="portfolio">
-				<img src="assets/portfolio11.jpg" alt="portfolio">
-				<img src="assets/portfolio12.jpg" alt="portfolio">
+			<section class="box-section" id="portfolio-block">
+				<img src="assets/portfolio1.jpg" alt="portfolio" class="portf ">
+				<img src="assets/portfolio2.jpg" alt="portfolio" class="portf ">
+				<img src="assets/portfolio3.jpg" alt="portfolio" class="portf ">
+				<img src="assets/portfolio4.jpg" alt="portfolio" class="portf " >
+				<img src="assets/portfolio5.jpg" alt="portfolio" class="portf ">
+				<img src="assets/portfolio6.jpg" alt="portfolio" class="portf ">
+				<img src="assets/portfolio7.jpg" alt="portfolio" class="portf ">
+				<img src="assets/portfolio8.jpg" alt="portfolio" class="portf ">
+				<img src="assets/portfolio9.jpg" alt="portfolio" class="portf ">
+				<img src="assets/portfolio10.jpg" alt="portfolio" class="portf ">
+				<img src="assets/portfolio11.jpg" alt="portfolio" class="portf ">
+				<img src="assets/portfolio12.jpg" alt="portfolio" class="portf ">
 
 			</section>
 		</section>
-		<section class="about">
+		<section class="about" id="about">
 			<h3>About Us</h3>
 			<p>Fusce dapibus, tellus ac curcus commondo, tortor mauris condimentum. Duis mollis, non commodo luctus nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus as curcus commodo, tortor mauris condimentum nibh.</p>
 			<div class="team">
@@ -162,17 +203,26 @@
 				</div>
 			</div>		
 		</section>
-		<section class="boxes-form">
+		<section class="boxes-form" id="contact">
 			<h3>Get a Quote</h3>
 			<p>Fusce dapibus, tellus ac curcus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus nisi erat portitor ligula, egget lacinia odio sem nec elit. Fusce dapibus, tellus ac curcus commodo, tortor mauris condimentum nibh.</p>
 			<section class="box">
 				<form name="form" >
-					<input type="text" name="name" placeholder="Name (Requred)" pattern="[A-Za-z]{3,14}" required>
-					<input type="email" name="email" placeholder="Email (Requred)" required>
-					<input type="text" name="subject" placeholder="Subject" >
-					<textarea placeholder="Describe your project in detail..."></textarea>
-					<button type="submit">Submit</button>
+					<input type="text" id="name" name="name" placeholder="Name (Requred)" pattern="[A-Za-z]{3,14}" required>
+					<input type="email" id="email" name="email" placeholder="Email (Requred)" required>
+					<input type="text" name="subject" id="subject" placeholder="Subject" >
+					<textarea placeholder="Describe your project in detail..." id="describe"></textarea>
+					<button id="btn">Submit</button>
+					
 				</form>
+				<div class="modal hidden" id="modal">
+						<section class="modal-window">
+							<h6>Письмо отправлено</h6>
+							<p id="resultSubject"></p>
+							<p id="resultDescribe"></p>
+							<button id="close">OK</button>
+						</section>
+					</div>
 				<div class="contacts">
 					<h4>Contact Information</h4>
 					<p>Quisque hendcredit purus dapibus,ornare nibh vitae, viver-ra nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat libero. Nulla sed nunc torror luctus faucibus. Morbi at aliquet turpis et consequat felis.</p>
@@ -194,5 +244,6 @@
 			<a href="#" class="li"></a>
 		</div>
 	</footer>
+	<script async src="script.js"></script>
 </body>
 </html>

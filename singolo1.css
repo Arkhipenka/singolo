@@ -31,7 +31,7 @@ h1{
 h1 span{
 	color:#f06c64;
 }
-ul{
+nav ul{
 	padding: 0;
 }
 .menu{
@@ -189,10 +189,10 @@ main{
 	height: 100%;
 }
 .slider_image_box:last-child .screen div{
-	background: #fff url("img/screen1.jpg") no-repeat 49.5% 30%;
+	background: #fff url("assets/screen1.jpg") no-repeat 49.5% 30%;
 }
 .slider_image_box:first-child .screen div{
-	background: #fff url("img/screen2.jpg") no-repeat 3.5% 55%;
+	background: #fff url("assets/screen2.jpg") no-repeat 3.5% 55%;
 }
 .btn{
 	display: flex;
