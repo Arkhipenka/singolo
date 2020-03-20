@@ -1,66 +1,120 @@
-const MENU = document.getElementById("menu");
-const PORTFOLIO = document.getElementById('portfolio-block')
+window.onload = () => {
+	onChangeScroll();
+};
+
+
 const BUTTON = document.getElementById('btn');
 const CLOSE = document.getElementById('close');
-const SCREEN = document.getElementsByClassName('screen');
+
+
+
 const TAB = document.getElementById('portfolio-nav');
 const NEXT = document.getElementById('next');
+
+//HEADER NAV
+
+const MENU = document.getElementById("menu");
 
 MENU.addEventListener('click', (event) => {
 	MENU.querySelectorAll('a').forEach(el => el.classList.remove('active'));
 	event.target.classList.add('active');
 });
 
-let sliders = document.querySelectorAll('.slider');
-let currentSlider = 0;
-let isEnabled = true;
+window.addEventListener('scroll', onChangeScroll);
 
-function changeCurrentSlider(n) {
-    currentSlider = (n + sliders.length) % sliders.length;
+function onChangeScroll(){
+	onChangeHeader()
+	const HEADER_HEIGHT = 40;
+	const servicesPos = document.getElementById("services").offsetTop - HEADER_HEIGHT;
+  	const portfolioPos = document.getElementById("portfolio").offsetTop - HEADER_HEIGHT;
+  	const aboutPos = document.getElementById("about").offsetTop - HEADER_HEIGHT;
+  	const contactPos = document.getElementById("contact").offsetTop - HEADER_HEIGHT;
+
+  	const currentPos = window.pageYOffset;
+  	if (currentPos < servicesPos) changeActiveNav(0);
+  	else if (currentPos >= servicesPos && currentPos < portfolioPos) changeActiveNav(1);
+  	else if (currentPos >= portfolioPos && currentPos < aboutPos) changeActiveNav(2);
+  	else if (currentPos >= aboutPos && currentPos < contactPos && !isPageEnd()) changeActiveNav(3);
+  	if (isPageEnd() || currentPos >= contactPos) changeActiveNav(4);
+}
+function isPageEnd() {
+  return window.pageYOffset >= document.documentElement.offsetHeight - innerHeight
 }
 
-function hideSlider(argument) {
-    isEnabled = false;
-    sliders[currentSlider].classList.add(argument);
-    sliders[currentSlider].addEventListener('animationend', function () {
-        this.classList.remove('slide-active', argument);
-    });
+function changeActiveNav(i) {
+  const navLinks = MENU.querySelectorAll(".navbar-item")
+  navLinks.forEach(item => {
+    item.classList.remove("active")
+  })
+  navLinks[i].classList.add("active")
 }
 
-function showSlider(argument) {
-    sliders[currentSlider].classList.add('slide-next', argument);
-    sliders[currentSlider].addEventListener('animationend', function () {
-        this.classList.remove('slide-next', argument);
-        this.classList.add('slide-active');
-        isEnabled = true;
-    });
+
+const HEADER = document.getElementById('header-nav');
+function onChangeHeader() {
+  if (window.pageYOffset > 100) {
+ 
+    HEADER.classList.add("small-header")
+  } else {
+    
+ 	HEADER.classList.remove("small-header")
+  }
 }
 
-function previousSlider(n) {
-    hideSlider('to-right');
-    changeCurrentSlider(n - 1);
-    showSlider('from-left')
+
+//slider
+
+
+
+const Left = document.getElementById("prew")
+const Right = document.getElementById("next")
+const slides = document.querySelectorAll(".slider")
+const slider = document.getElementById("slider")
+
+Left.addEventListener("click", changeSlideRight)
+Right.addEventListener("click", changeSlideLeft)
+
+function changeSlideLeft() {
+  changeSlide("left")
 }
 
-function nextSlider(n) {
-    hideSlider('to-left');
-    changeCurrentSlider(n + 1);
-    showSlider('from-right')
+function changeSlideRight() {
+  changeSlide("right")
 }
 
-document.querySelector('.prew').addEventListener('click', function () {
-    if (isEnabled) {
-        previousSlider(currentSlider);
-    }
-});
+function changeSlide(direction) {
+  for (let slide of slides) {
+    slide.classList.toggle("slide-hidden")
+  }
+  for (let slide of slides) {
+    if (!slide.classList.contains("slide-hidden")) {
+      changeSlideClass(slide, `slider-${direction}`)
+    } else changeSlideClass(slide, `slider-${direction}-gone`)
+  }
+  slider.classList.toggle("slider_two")
+}
 
-document.querySelector('.next').addEventListener('click', function () {
-    if (isEnabled) {
-        nextSlider(currentSlider);
-    }
-});
+function changeSlideClass(el, newClass) {
+  el.classList.add(newClass)
+  setTimeout(() => {
+    el.classList.remove(newClass)
+  }, 300)
+}
+
+//sleep phone
+const phones = document.querySelectorAll(".slider_image_box")
+for (let phone of phones) phone.addEventListener("click", togglePhone)
+
+function togglePhone(event) {
+  const phone = event.target;
+  if (phone.classList.contains("phone")) {
+    phone.nextElementSibling.classList.toggle("sleep");
+  } else if (phone.classList.contains("screen")); phone.classList.toggle("sleep")
+}
 
 
+//Portfolio sort
+const PORTFOLIO = document.getElementById('portfolio');
 
 TAB.addEventListener('click', (event) => {
 	let arrPortf = ['1','2','3','4','5','6','7','8','9','10','11','12'];
@@ -106,6 +160,8 @@ const filterPictures = () => {
     })    
 }
 
+
+// form
 BUTTON.addEventListener('click', () => {
 	const subject = document.getElementById('subject').value;
 	const description = document.getElementById('describe').value;
