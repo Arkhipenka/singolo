@@ -61,6 +61,12 @@ function onChangeHeader() {
   }
 }
 
+const HOME = document.getElementById("home")
+HOME.addEventListener("click", scrollTopHandler)
+
+function scrollTopHandler() {
+  window.scrollTo({ top, behavior: "smooth" })
+}
 
 //slider
 
