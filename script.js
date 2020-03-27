@@ -1,7 +1,49 @@
 window.onload = () => {
 	onChangeScroll();
 };
+const MENU = document.getElementById("menu");
 
+//mobile menu
+const MobileMenu = document.getElementById("mobile");
+const menuModal = document.querySelector(".mobile-modal")
+const navMobile = document.querySelector(".nav-mobile")
+const navDesktop = document.querySelector(".menu")
+const headerWrapper = document.querySelector(".header")
+let isMenuOpen = false
+
+MobileMenu.addEventListener("click", menuClickHandler)
+menuModal.addEventListener("click", closeMenuHandler)
+
+function closeMenuHandler(event) {
+  event.target.dataset.close && isMenuOpen ? closeMenu() : null
+}
+
+function menuClickHandler() {
+  isMenuOpen ? closeMenu() : openMenu()
+}
+
+function openMenu() {
+  toggleClasses()
+  isMenuOpen = true
+  navMobile.append(MENU)
+}
+
+function closeMenu() {
+  toggleClasses()
+  isMenuOpen = false
+  menuModal.classList.add("menu-modal_hide")
+  setTimeout(() => {
+    menuModal.classList.remove("menu-modal_hide")
+  }, 400)
+  navDesktop.append(MENU)
+}
+
+function toggleClasses() {
+  MobileMenu.classList.toggle("mobile-menu-active")
+  menuModal.classList.toggle("menu-mobile")
+  MENU.classList.toggle("mobile-nav")
+  headerWrapper.classList.toggle("header_wrapper_menu-open")
+}
 
 const BUTTON = document.getElementById('btn');
 const CLOSE = document.getElementById('close');
@@ -13,7 +55,7 @@ const NEXT = document.getElementById('next');
 
 //HEADER NAV
 
-const MENU = document.getElementById("menu");
+
 
 MENU.addEventListener('click', (event) => {
 	MENU.querySelectorAll('a').forEach(el => el.classList.remove('active'));
@@ -132,11 +174,11 @@ TAB.addEventListener('click', (event) => {
 	event.target.classList.add('active');
 	const workClass = document.getElementById('portfolio-block');
 	workClass.querySelectorAll('img').forEach(el => {
-		for(let i = 1; i <= 12; i++){
+		for(let i = 1; i <= workClass.children.length; i++){
 			el.classList.remove('work' + i);
 		}
 	});
-	for (var i = 0; i < 12; i++) {
+	for (var i = 0; i < workClass.children.length; i++) {
 		workClass.children[i].classList.add('work' + arrPortf[i]);
 	}
 	
